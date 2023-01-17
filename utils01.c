@@ -6,7 +6,7 @@
 /*   By: kaboussi <kaboussi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 19:28:25 by kaboussi          #+#    #+#             */
-/*   Updated: 2023/01/13 20:01:29 by kaboussi         ###   ########.fr       */
+/*   Updated: 2023/01/16 15:58:00 by kaboussi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,15 +54,28 @@ int	ft_strlen(const char *str)
 	return (i);
 }
 
-t_list	*ft_lstnew(void *content)
+char	*ft_substr(char const *s, int start, int len)
 {
-	t_list	*k;
+	char			*p;
+	int				i;
 
-	k = malloc(sizeof(t_list));
-	if (!k)
+	i = 0;
+	if (!s)
 		return (NULL);
-	k->content = content;
-	k->next = NULL;
-	return (k);
+	if (start < ft_strlen(s))
+	{
+		if (ft_strlen(s) < len)
+			len = ft_strlen(s);
+		p = ft_calloc(len + 1, sizeof(char));
+		if (!p)
+			return (NULL);
+		while (i < len)
+			p[i++] = s[start++];
+	}
+	else
+		p = malloc(1);
+	if (!p)
+		return (p);
+	p[i] = '\0';
+	return (p);
 }
-

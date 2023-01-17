@@ -6,7 +6,7 @@
 /*   By: kaboussi <kaboussi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 15:37:04 by kaboussi          #+#    #+#             */
-/*   Updated: 2023/01/13 20:13:00 by kaboussi         ###   ########.fr       */
+/*   Updated: 2023/01/16 15:57:22 by kaboussi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ typedef struct s_list
 int		ft_strlen(const char *str);
 void	*ft_memset(char *s, int c, size_t n);
 void	ft_bzero(void *s, size_t n);
+char	*ft_substr(char const *s, int start, int len);
 void	*ft_calloc(size_t n, size_t size);
 char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_strdup(const char *str);
@@ -35,7 +36,22 @@ int		ft_atoi(const char *str);
 void	printerror(void);
 int		ft_limits(int n);
 char	**ft_split(char const *s, char c);
-t_list	*ft_lstnew(void *content);
+t_list	*ft_lstnew(int content);
 void	ft_lstadd_back(t_list **lst, t_list *new);
+void	ft_putstr(char *s);
+void	ft_lstadd_front(t_list **lst, t_list *new);
+t_list	*ft_lstlast(t_list *lst);
+void	ft_lstdelone(t_list *lst);
+void	sa(t_list **a);
+void	sb(t_list **b);
+void	ss(t_list **a, t_list **b);
+void	pa(t_list **a, t_list **b);
+void	pb(t_list **a, t_list **b);
+void	ra(t_list **a);
+void	rb(t_list **b);
+void	rr(t_list **a, t_list **b);
+void	rra(t_list **a);
+void	rrb(t_list **b);
+void	rrr(t_list **a, t_list **b);
 
 #endif

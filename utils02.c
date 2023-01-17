@@ -6,7 +6,7 @@
 /*   By: kaboussi <kaboussi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 19:55:37 by kaboussi          #+#    #+#             */
-/*   Updated: 2023/01/13 19:56:05 by kaboussi         ###   ########.fr       */
+/*   Updated: 2023/01/16 15:51:25 by kaboussi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,4 +81,16 @@ char	**ft_split(char const *s, char c)
 		return (NULL);
 	p = ft_print(s, p, c);
 	return (p);
+}
+
+t_list	*ft_lstnew(int content)
+{
+	t_list	*k;
+
+	k = malloc(sizeof(t_list));
+	if (!k)
+		return (NULL);
+	k->content = content;
+	k->next = NULL;
+	return (k);
 }
