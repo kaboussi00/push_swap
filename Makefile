@@ -7,7 +7,9 @@ SRCS = push_swap.c\
 	utils03.c\
 	utils04.c\
 	utils05.c\
-	utils06.c
+	utils06.c\
+	utils07.c\
+	utils08.c
 
 
 OBJS = $(SRCS:.c=.o)
@@ -20,7 +22,7 @@ CC = cc
 
 all:$(NAME)
 $(NAME):$(OBJS)
-	@ $(CC) $(CFLAGS) $(OBJS) -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 
 %.o:%.c $(INC)
 	$(CC) $(CFLAGS) -o $@ -c $<

@@ -6,7 +6,7 @@
 /*   By: kaboussi <kaboussi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 15:37:04 by kaboussi          #+#    #+#             */
-/*   Updated: 2023/01/16 15:57:22 by kaboussi         ###   ########.fr       */
+/*   Updated: 2023/01/21 19:55:09 by kaboussi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,5 +53,12 @@ void	rr(t_list **a, t_list **b);
 void	rra(t_list **a);
 void	rrb(t_list **b);
 void	rrr(t_list **a, t_list **b);
+int		ft_lstsize(t_list *lst);
+int		sorttwo(t_list	*lst);
+int		sorttrois(t_list **lst);
+int		sortquatre(t_list	**lst, t_list	**b);
+int		minvalue(t_list **lst, t_list **b);
+void	min_value(t_list **lst);
+int		sortcinq(t_list	**lst, t_list	**b);
 
 #endif
