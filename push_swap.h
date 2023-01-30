@@ -6,7 +6,7 @@
 /*   By: kaboussi <kaboussi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 15:37:04 by kaboussi          #+#    #+#             */
-/*   Updated: 2023/01/21 19:55:09 by kaboussi         ###   ########.fr       */
+/*   Updated: 2023/01/30 19:43:56 by kaboussi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,5 +60,9 @@ int		sortquatre(t_list	**lst, t_list	**b);
 int		minvalue(t_list **lst, t_list **b);
 void	min_value(t_list **lst);
 int		sortcinq(t_list	**lst, t_list	**b);
+int		duplicate(t_list *lst);
+int		size(t_list *lst);
+int		ft_lstsize(t_list *lst);
+int		pivot(t_list	**lst, int size);
 
 #endif
