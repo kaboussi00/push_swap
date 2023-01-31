@@ -9,8 +9,8 @@ SRCS = push_swap.c\
 	utils05.c\
 	utils06.c\
 	utils07.c\
-	utils08.c
-
+	utils08.c\
+	utils09.c
 
 OBJS = $(SRCS:.c=.o)
 

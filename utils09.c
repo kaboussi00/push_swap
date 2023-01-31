@@ -6,7 +6,7 @@
 /*   By: kaboussi <kaboussi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 16:18:01 by kaboussi          #+#    #+#             */
-/*   Updated: 2023/01/30 19:58:59 by kaboussi         ###   ########.fr       */
+/*   Updated: 2023/01/31 19:18:21 by kaboussi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,16 +21,61 @@ void	ft_swap(int *a, int *b)
 	*b = tmp;
 }
 
-int	sort_lst(t_list **lst)
+int	pivot(t_list	**lst, int size)
+{
+	t_list	*tmp;
+	int		index;
+	int		i;
+	int		j;
+	t_list	*pivot;
+
+	tmp = *lst;
+	j = 1;
+	size = ft_lstsize(tmp);
+	i = size / 2 ;
+	if (size % 2 == 0)
+		index = i;
+	else
+		index = i + 1;
+	while (j != index)
+	{
+		tmp = tmp->next;
+		j++;
+	}
+	return (tmp->content);
+}
+
+t_list	*ft_lstcopie(t_list	*lst, int size)
+{
+	t_list	*lstcopie;
+	t_list	*tmp;
+	int		ret;
+
+	ret = 0;
+	tmp = lst;
+	lstcopie = NULL;
+	if (!size)
+		exit(0);
+	while (tmp && ret < size)
+	{
+		ft_lstadd_back(&lstcopie, ft_lstnew(tmp->content));
+		tmp = tmp->next;
+		ret++;
+	}
+	return (lstcopie);
+}
+
+int	sort_lst(t_list *lst, int size)
 {
 	t_list	*tmp;
 	t_list	*i;
 	t_list	*j;
 	int		ret;
+	t_list	*lstcp;
 
-	tmp = *lst;
+	lstcp = ft_lstcopie(lst, size);
+	tmp = lstcp;
 	i = tmp;
-	j = tmp->next;
 	while (i)
 	{
 		j = i->next;
@@ -39,34 +84,9 @@ int	sort_lst(t_list **lst)
 			ret = i->content - j->content;
 			if (ret > 0)
 				ft_swap(&i->content, &j->content);
-			else if (ret == 0)
-				printerror();
 			j = j->next;
 		}
 		i = i->next;
 	}
-	return (0);
-}
-
-int	pivot(t_list	**lst, int size)
-{
-	t_list	*tmp;
-	int		ret;
-	int		i;
-	int		pivot;
-
-	tmp = *lst;
-	sort_lst(tmp);
-	size = ft_lstsize(tmp);
-	while (tmp)
-	{
-		i = size / 2 ;
-		if (size % 2 == 0)
-			pivot = i;
-		else
-			pivot = i + 1;
-		tmp = tmp->next;
-		return (pivot);
-	}
-	return (0);
+	return (pivot(&lstcp, size));
 }

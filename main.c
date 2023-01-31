@@ -9,7 +9,6 @@ void	ft_swap(int *a, int *b)
 	*b = tmp;
 }
 
-
 int	ft_lstsize(t_list *lst)
 {
 	int	size;
@@ -61,39 +60,6 @@ t_list	*ft_lstnew(int content)
 	return (k);
 }
 
-void	printerror(void)
-{
-	write (2, "error\n", 6);
-	exit(0);
-}
-
-int	sort_lst(t_list **lst)
-{
-	t_list	*tmp;
-	t_list	*i;
-	t_list	*j;
-	int		ret;
-
-	tmp = *lst;
-	i = tmp;
-	j = tmp->next;
-	while (i)
-	{
-		j = i->next;
-		while (j)
-		{
-			ret = i->content - j->content;
-			if (ret > 0)
-				ft_swap(&i->content, &j->content);
-			else if (ret == 0)
-				printerror();
-			j = j->next;
-		}
-		i = i->next;
-	}
-	return (0);
-}
-
 int	pivot(t_list	**lst, int size)
 {
 	t_list	*tmp;
@@ -104,7 +70,6 @@ int	pivot(t_list	**lst, int size)
 
 	tmp = *lst;
 	j = 1;
-	sort_lst(&tmp);
 	size = ft_lstsize(tmp);
 	i = size / 2 ;
 	if (size % 2 == 0)
@@ -119,6 +84,88 @@ int	pivot(t_list	**lst, int size)
 	return (tmp->content);
 }
 
+// int	sort_lst(t_list *lst, int	size)
+// {
+// 	t_list	*tmp;
+// 	t_list	*i;
+// 	t_list	*j;
+// 	int		ret;
+// 	int		lstcopie;
+
+// 	ft_lstcopie(&lstcopie, size);
+// 	tmp = lstcopie;
+// 	i = tmp;
+// 	while (i)
+// 	{
+// 		j = i->next;
+// 		while (j)
+// 		{
+// 			ret = i->content - j->content;
+// 			if (ret > 0)
+// 				ft_swap(&i->content, &j->content);
+// 			else if (ret == 0)
+// 				printerror();
+// 			j = j->next;
+// 		}
+// 		i = i->next;
+// 	}
+// 	return (pivot(&lstcopie, size));
+// }
+
+t_list	*ft_lstcopie(t_list	*lst, int size)
+{
+	t_list	*lstcopie;
+	t_list	*tmp;
+	int		ret;
+
+	ret = 0;
+	tmp = lst;
+	lstcopie = NULL;
+	if (!size)
+		exit(0);
+	while (tmp && ret < size)
+	{
+		ft_lstadd_back(&lstcopie, ft_lstnew(tmp->content));
+		tmp = tmp->next;
+		ret++;
+	}
+	return (lstcopie);
+}
+
+int	sort_lst(t_list *lst, int	size)
+{
+	t_list	*tmp;
+	t_list	*i;
+	t_list	*j;
+	int		ret;
+	t_list	*lstcp;
+
+	lstcp = ft_lstcopie(lst, size);
+	tmp = lstcp;
+	i = tmp;
+	while (i)
+	{
+		j = i->next;
+		while (j)
+		{
+			ret = i->content - j->content;
+			if (ret > 0)
+				ft_swap(&i->content, &j->content);
+			j = j->next;
+		}
+		i = i->next;
+	}
+	return (pivot(&lstcp, size));
+}
+
+
+void	printerror(void)
+{
+	write (2, "error\n", 6);
+	exit(0);
+}
+
+
 int main ()
 {
 	t_list *b;
@@ -128,23 +175,24 @@ int main ()
 	ft_lstadd_back(&b,ft_lstnew(1));
 	ft_lstadd_back(&b,ft_lstnew(5));
 	ft_lstadd_back(&b,ft_lstnew(254));
-	// ft_lstadd_back(&b,ft_lstnew(22));
-	// ft_lstadd_back(&b,ft_lstnew(2359));
-	// ft_lstadd_back(&b,ft_lstnew(236));
-	// ft_lstadd_back(&b,ft_lstnew(215));
-	// ft_lstadd_back(&b,ft_lstnew(221));
-	// ft_lstadd_back(&b,ft_lstnew(32));
-	// ft_lstadd_back(&b,ft_lstnew(54));
-	// ft_lstadd_back(&b,ft_lstnew(65));
-	// ft_lstadd_back(&b,ft_lstnew(3233));
-	// ft_lstadd_back(&b,ft_lstnew(21));
-	// ft_lstadd_back(&b,ft_lstnew(22222));
-	// ft_lstadd_back(&b,ft_lstnew(89));
+	ft_lstadd_back(&b,ft_lstnew(22));
+	ft_lstadd_back(&b,ft_lstnew(2359));
+	ft_lstadd_back(&b,ft_lstnew(236));
+	ft_lstadd_back(&b,ft_lstnew(215));
+	ft_lstadd_back(&b,ft_lstnew(221));
+	ft_lstadd_back(&b,ft_lstnew(32));
+	ft_lstadd_back(&b,ft_lstnew(54));
+	ft_lstadd_back(&b,ft_lstnew(65));
+	ft_lstadd_back(&b,ft_lstnew(3233));
+	ft_lstadd_back(&b,ft_lstnew(21));
+	ft_lstadd_back(&b,ft_lstnew(22222));
+	ft_lstadd_back(&b,ft_lstnew(89));
 	// ft_lstadd_back(&b,ft_lstnew(-565));
-	printf("%d\n",pivot(&b,4));
-	// while (b)
-	// {
-	// 	printf("%d\n",b->content);
-	// 	b = b->next;
-	// }
+	printf("%d\n",sort_lst(b,4));
+	printf("-----------\n");
+	while (b)
+	{
+		printf("%d\n",b->content);
+		b = b->next;
+	}
 }
