@@ -6,7 +6,7 @@
 /*   By: kaboussi <kaboussi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 15:41:33 by kaboussi          #+#    #+#             */
-/*   Updated: 2023/01/30 16:49:48 by kaboussi         ###   ########.fr       */
+/*   Updated: 2023/02/13 19:05:30 by kaboussi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,9 @@ int	main(int ac, char **av)
 	char	**split;
 	t_list	*a;
 	t_list	*b;
+	size_t	len;
 
+	len = 0;
 	b = NULL;
 	i = 1;
 	join = ft_strdup("");
@@ -37,11 +39,18 @@ int	main(int ac, char **av)
 		while (split[i])
 			ft_lstadd_back(&a, ft_lstnew(ft_atoi(split[i++])));
 		duplicate(a);
-		sortcinq(&a, &b);
+		sort_a(&a, &b, 9);
+		puts("a");
 		while (a)
 		{
-			printf("%d\n",a->content);
+			printf("%d\n", a->content);
 			a = a->next;
+		}
+		puts("b");
+		while (b)
+		{
+			printf("%d\n", b->content);
+			b = b->next;
 		}
 	}
 }

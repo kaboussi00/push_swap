@@ -6,7 +6,7 @@
 /*   By: kaboussi <kaboussi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 16:18:01 by kaboussi          #+#    #+#             */
-/*   Updated: 2023/01/31 19:18:21 by kaboussi         ###   ########.fr       */
+/*   Updated: 2023/02/13 12:16:17 by kaboussi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ int	pivot(t_list	**lst, int size)
 	int		index;
 	int		i;
 	int		j;
-	t_list	*pivot;
 
 	tmp = *lst;
 	j = 1;

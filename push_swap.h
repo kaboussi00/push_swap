@@ -6,7 +6,7 @@
 /*   By: kaboussi <kaboussi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 15:37:04 by kaboussi          #+#    #+#             */
-/*   Updated: 2023/01/31 19:16:52 by kaboussi         ###   ########.fr       */
+/*   Updated: 2023/02/13 19:13:36 by kaboussi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,15 @@ typedef struct s_list
 	int				content;
 	struct s_list	*next;
 }					t_list;
+typedef struct s_var
+{
+	int		tmp1;
+	int		tmp2;
+	int		tmp3;
+	int		ret_pb;
+	int		ret_ra;
+	int		pivot;
+}					t_var;
 int		ft_strlen(const char *str);
 void	*ft_memset(char *s, int c, size_t n);
 void	ft_bzero(void *s, size_t n);
@@ -63,6 +72,11 @@ int		sortcinq(t_list	**lst, t_list	**b);
 int		duplicate(t_list *lst);
 int		ft_lstsize(t_list *lst);
 int		pivot(t_list	**lst, int size);
-t_list	*ft_lstcopie(t_list	*lst, int	size);
+int		sort_lst(t_list *lst, int size);
+t_list	*ft_lstcopie(t_list	*lst, int size);
+int		sorttroistop(t_list **a);
+int		ft_sortawithpivot(t_list **a, t_list **b, size_t len_a);
+int		sort_a(t_list	**a, t_list **b, size_t	len_a);
+
 
 #endif
