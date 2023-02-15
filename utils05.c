@@ -6,7 +6,7 @@
 /*   By: kaboussi <kaboussi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 12:57:05 by kaboussi          #+#    #+#             */
-/*   Updated: 2023/02/13 18:46:48 by kaboussi         ###   ########.fr       */
+/*   Updated: 2023/02/14 13:52:09 by kaboussi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,10 @@ void	rb(t_list **b)
 
 	if (*b && (*b)->next)
 	{
-		tmp = (*b)->next;
-		ft_lstlast(*b)->next = (*b);
-		(*b)->next = NULL;
-		(*b) = tmp;
+		tmp = (*b);
+		(*b) = tmp->next;
+		ft_lstadd_back(b, ft_lstnew(tmp->content));
+		free(tmp);
 		tmp = NULL;
 	}
 	ft_putstr("rb\n");

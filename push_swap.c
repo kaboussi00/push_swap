@@ -6,7 +6,7 @@
 /*   By: kaboussi <kaboussi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 15:41:33 by kaboussi          #+#    #+#             */
-/*   Updated: 2023/02/13 19:05:30 by kaboussi         ###   ########.fr       */
+/*   Updated: 2023/02/14 20:13:11 by kaboussi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int	main(int ac, char **av)
 		while (split[i])
 			ft_lstadd_back(&a, ft_lstnew(ft_atoi(split[i++])));
 		duplicate(a);
-		sort_a(&a, &b, 9);
+		sort_b(&a, &b, 9);
 		puts("a");
 		while (a)
 		{

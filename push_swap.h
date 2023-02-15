@@ -6,7 +6,7 @@
 /*   By: kaboussi <kaboussi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 15:37:04 by kaboussi          #+#    #+#             */
-/*   Updated: 2023/02/13 19:13:36 by kaboussi         ###   ########.fr       */
+/*   Updated: 2023/02/14 20:22:42 by kaboussi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ typedef struct s_var
 	int		tmp3;
 	int		ret_pb;
 	int		ret_ra;
+	int		ret_pa;
+	int		ret_rb;
 	int		pivot;
 }					t_var;
 int		ft_strlen(const char *str);
@@ -64,7 +66,9 @@ void	rrb(t_list **b);
 void	rrr(t_list **a, t_list **b);
 int		ft_lstsize(t_list *lst);
 int		sorttwo(t_list	*lst);
+int		sorttwo_b(t_list	*lst);
 int		sorttrois(t_list **lst);
+int		sorttrois_b(t_list **lst);
 int		sortquatre(t_list	**lst, t_list	**b);
 int		minvalue(t_list **lst, t_list **b);
 void	min_value(t_list **lst);
@@ -76,7 +80,8 @@ int		sort_lst(t_list *lst, int size);
 t_list	*ft_lstcopie(t_list	*lst, int size);
 int		sorttroistop(t_list **a);
 int		ft_sortawithpivot(t_list **a, t_list **b, size_t len_a);
+int		ft_sortbwithpivot(t_list **a, t_list **b, size_t len_b);
 int		sort_a(t_list	**a, t_list **b, size_t	len_a);
-
+int		sort_b(t_list	**a, t_list **b, size_t	len_b);
 
 #endif
