@@ -6,7 +6,7 @@
 /*   By: kaboussi <kaboussi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 11:18:38 by kaboussi          #+#    #+#             */
-/*   Updated: 2023/02/13 18:57:13 by kaboussi         ###   ########.fr       */
+/*   Updated: 2023/02/18 11:50:35 by kaboussi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,13 +54,16 @@ void	pa(t_list **a, t_list **b)
 	tmp = NULL;
 	if (*b)
 	{
-		tmp = (*b)->next;
-		(*b)->next = NULL;
-		ft_lstadd_front (a, ft_lstnew((*b)->content));
-		(*b) = tmp;
+		tmp = (*b);
+		(*b) = tmp->next;
+		ft_lstadd_front (a, ft_lstnew(tmp->content));
+		free(tmp);
+		tmp = NULL;
 	}
 	ft_putstr("pa\n");
 }
+
+
 
 void	pb(t_list **a, t_list **b)
 {

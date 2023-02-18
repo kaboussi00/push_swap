@@ -1,28 +1,5 @@
 #include "push_swap.h"
 
-// void	ft_swap(int *a, int *b)
-// {
-// 	int	tmp;
-
-// 	tmp = *a;
-// 	*a = *b;
-// 	*b = tmp;
-// }
-
-int	ft_lstsize(t_list *lst)
-{
-	int	size;
-
-	size = 0;
-	while (lst)
-	{
-		lst = lst->next;
-		size++;
-	}
-	return (size);
-}
-
-
 void	ft_lstadd_back(t_list **lst, t_list *new)
 {
 	t_list	*last;
@@ -38,17 +15,6 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 		*lst = new;
 }
 
-t_list	*ft_lstlast(t_list *lst)
-{
-	while (lst)
-	{
-		if (lst->next == NULL)
-			return (lst);
-		lst = lst->next;
-	}
-	return (NULL);
-}
-
 t_list	*ft_lstnew(int content)
 {
 	t_list	*k;
@@ -61,19 +27,42 @@ t_list	*ft_lstnew(int content)
 	return (k);
 }
 
-void	rb(t_list **b)
+t_list	*ft_lstlast(t_list *lst)
 {
-	t_list	*tmp;
-
-	if (*b && (*b)->next)
+	while (lst)
 	{
-		tmp = (*b);
-		(*b) = tmp->next;
-		ft_lstadd_back(b, ft_lstnew(tmp->content));
-		free(tmp);
-		tmp = NULL;
+		if (lst->next == NULL)
+			return (lst);
+		lst = lst->next;
 	}
-	ft_putstr("rb\n");
+	return (NULL);
+}
+
+int	ft_lstsize(t_list *lst)
+{
+	int	size;
+
+	size = 0;
+	while (lst)
+	{
+		lst = lst->next;
+		size++;
+	}
+	return (size);
+}
+
+void	ft_putstr(char *s)
+{
+	int		i;
+
+	if (!s)
+		return ;
+	i = 0;
+	while (s[i])
+	{
+		write(1, &s[i], 1);
+		i++;
+	}
 }
 
 void	sb(t_list **b)
@@ -89,18 +78,43 @@ void	sb(t_list **b)
 	ft_putstr("sb\n");
 }
 
-void	ft_putstr(char *s)
+void	ft_swap(int *a, int *b)
 {
-	int		i;
+	int	tmp;
 
-	if (!s)
-		return ;
-	i = 0;
-	while (s[i])
+	tmp = *a;
+	*a = *b;
+	*b = tmp;
+}
+
+void	ra(t_list **a)
+{
+	t_list	*tmp;
+
+	if (*a && (*a)->next)
 	{
-		write(1, &s[i], 1);
-		i++;
+		tmp = (*a);
+		(*a) = tmp->next;
+		ft_lstadd_back(a, ft_lstnew(tmp->content));
+		free(tmp);
+		tmp = NULL;
 	}
+	ft_putstr("ra\n");
+}
+
+void	rb(t_list **b)
+{
+	t_list	*tmp;
+
+	if (*b && (*b)->next)
+	{
+		tmp = (*b);
+		(*b) = tmp->next;
+		ft_lstadd_back(b, ft_lstnew(tmp->content));
+		free(tmp);
+		tmp = NULL;
+	}
+	ft_putstr("rb\n");
 }
 
 void	rrb(t_list **b)
@@ -123,6 +137,15 @@ void	rrb(t_list **b)
 	ft_putstr("rrb\n");
 }
 
+void	ft_lstadd_front(t_list **lst, t_list *new)
+{
+	if (lst)
+	{
+		new->next = *lst;
+		*lst = new;
+	}
+}
+
 void	ft_lstdelone(t_list *lst)
 {
 	if (lst)
@@ -131,13 +154,17 @@ void	ft_lstdelone(t_list *lst)
 	}
 }
 
-void	ft_lstadd_front(t_list **lst, t_list *new)
+int	sorttwo_b(t_list	*lst)
 {
-	if (lst)
+	int	n;
+
+	n = ft_lstsize(lst);
+	if (n == 2)
 	{
-		new->next = *lst;
-		*lst = new;
+		if (lst->next->content > lst->content)
+			sb(&lst);
 	}
+	return (0);
 }
 
 int	sorttrois_b(t_list **lst)
@@ -170,45 +197,26 @@ int	sorttrois_b(t_list **lst)
 	}
 	return (0);
 }
-void	ss(t_list **a, t_list **b)
-{
-	if ((*a) && ((*a)->next) && (*b) && ((*b)->next))
-	{
-		sa(a);
-		sb(b);
-	}
-}
-
-void	pa(t_list **a, t_list **b)
+void	rra(t_list **a)
 {
 	t_list	*tmp;
+	t_list	*tmp1;
+	int		x;
 
-	tmp = NULL;
-	if (*b)
+	tmp1 = *a;
+	if ((*a) && (*a)->next)
 	{
-		tmp = (*b)->next;
-		(*b)->next = NULL;
-		ft_lstadd_front (a, ft_lstnew((*b)->content));
-		(*b) = tmp;
+		while (tmp1->next->next)
+			tmp1 = tmp1->next;
+		tmp = ft_lstlast(*a);
+		x = tmp->content;
+		ft_lstadd_front((a), ft_lstnew(x));
+		tmp1->next = NULL;
+		ft_lstdelone(tmp);
 	}
-	ft_putstr("pa\n");
+	ft_putstr("rra\n");
 }
 
-void	pb(t_list **a, t_list **b)
-{
-	t_list	*tmp;
-
-	tmp = NULL;
-	if (*a)
-	{
-		tmp = (*a);
-		(*a) = tmp->next;
-		ft_lstadd_front (b, ft_lstnew(tmp->content));
-		free(tmp);
-		tmp = NULL;
-	}
-	ft_putstr("pb\n");
-}
 
 void	sa(t_list **a)
 {
@@ -227,49 +235,58 @@ int	sorttroistop_b(t_list **b)
 {
 	t_var	tmp;
 
-	tmp.tmp1 = (*b)->content;
-	tmp.tmp2 = (*b)->next->content;
-	tmp.tmp3 = (*b)->next->next->content;
-	if (tmp.tmp3 > tmp.tmp1 && tmp.tmp3 < tmp.tmp2)
+	tmp.tmp1b = (*b)->content;
+	tmp.tmp2b = (*b)->next->content;
+	tmp.tmp3b = (*b)->next->next->content;
+	if (tmp.tmp3b > tmp.tmp1b && tmp.tmp3b > tmp.tmp2b)
 	{
-		if (tmp.tmp1 > tmp.tmp2)
-		{
-			rb(b);
+		if (tmp.tmp2b > tmp.tmp1b)
 			sb(b);
-			rrb(b);
-			sb(b);
-		}
-		else if (tmp.tmp2 > tmp.tmp1)
-		{
-			sb(b);
-			rb(b);
-			sb(b);
-			rrb(b);
-			sb(b);
-		}
+		rb(b);
+		sb(b);
+		rrb(b);
+		sb(b);
 	}
-	else if (tmp.tmp1 > tmp.tmp2 && tmp.tmp1 > tmp.tmp3)
+	else if (tmp.tmp1b > tmp.tmp2b && tmp.tmp1b > tmp.tmp3b)
 	{
-		if (tmp.tmp3 > tmp.tmp2)
+		if (tmp.tmp3b > tmp.tmp2b)
 		{
 			rb(b);
 			sb(b);
 			rrb(b);
 		}
 	}
-	else if (tmp.tmp2 > tmp.tmp1 && tmp.tmp2 > tmp.tmp3)
+	else if (tmp.tmp2b > tmp.tmp1b && tmp.tmp2b > tmp.tmp3b)
 	{
-		if (tmp.tmp1 > tmp.tmp3)
-			sb(b);
-		if (tmp.tmp3 > tmp.tmp1)
+		sb(b);
+		if (tmp.tmp3b > tmp.tmp1b)
 		{
-			sb(b);
 			rb(b);
 			sb(b);
 			rrb(b);
 		}
 	}
 	return (0);
+}
+
+t_list	*ft_lstcopie(t_list	*lst, int size)
+{
+	t_list	*lstcopie;
+	t_list	*tmp;
+	int		ret;
+
+	ret = 0;
+	tmp = lst;
+	lstcopie = NULL;
+	if (!size)
+		exit(0);
+	while (tmp && ret < size)
+	{
+		ft_lstadd_back(&lstcopie, ft_lstnew(tmp->content));
+		tmp = tmp->next;
+		ret++;
+	}
+	return (lstcopie);
 }
 
 int	sort_lst(t_list *lst, int size)
@@ -298,40 +315,79 @@ int	sort_lst(t_list *lst, int size)
 	return (pivot(&lstcp, size));
 }
 
-int	ft_sortabwithpivot(t_list **a, t_list **b, size_t len_a)
+int	pivot(t_list	**lst, int size)
 {
-	t_list	*tmpa;
+	t_list	*tmp;
+	int		index;
+	int		i;
+	int		j;
+
+	tmp = *lst;
+	j = 1;
+	size = ft_lstsize(tmp);
+	i = size / 2 ;
+	if (size % 2 == 0)
+		index = i;
+	else
+		index = i + 1;
+	while (j != index)
+	{
+		tmp = tmp->next;
+		j++;
+	}
+	return (tmp->content);
+}
+
+void	pa(t_list **a, t_list **b)
+{
+	t_list	*tmp;
+
+	tmp = NULL;
+	if (*b)
+	{
+		tmp = (*b);
+		(*b) = tmp->next;
+		ft_lstadd_front (a, ft_lstnew(tmp->content));
+		free(tmp);
+		tmp = NULL;
+	}
+	ft_putstr("pa\n");
+}
+
+int	ft_sortbwithpivot(t_list **b, t_list **a, size_t len_b)
+{
+	t_list	*tmpb;
 	t_var	tmp;
 	size_t	i;
 
-	tmp.ret_pb = 0;
-	tmp.ret_ra = 0;
+	tmp.ret_pa = 0;
+	tmp.ret_rb = 0;
 	i = -1;
-	tmpa = (*a);
-	tmp.pivot = sort_lst(*a, len_a);
-	while (tmpa && ++i < len_a)
+	tmpb = (*b);
+	tmp.pivot = sort_lst(*b, len_b);
+	while (tmpb && ++i < len_b)
 	{
-		if ((tmpa)->content < tmp.pivot)
+		if ((tmpb)->content >= tmp.pivot)
 		{
-			pb(a, b);
-			tmp.ret_pb += 1;
+			pa(a, b);
+			tmp.ret_pa += 1;
 		}
-		else if ((tmpa)->content >= tmp.pivot)
+		else if ((tmpb)->content < tmp.pivot)
 		{
-			ra(a);
-			tmp.ret_ra += 1;
+			rb(b);
+			tmp.ret_rb += 1;
 		}
-		tmpa = tmpa->next;
+		tmpb = tmpb->next;
 	}
-	return (sort_b(a, b, tmp.ret_ra));
+	return (sort_b(b, a, tmp.ret_rb), sort_a(a, b, tmp.ret_pa));
 }
 
-int	sort_b(t_list	**a, t_list **b, size_t	len_b)
+int	sort_b(t_list	**b, t_list **a, size_t	len_b)
 {
 	if (len_b <= 3)
-	{
+	{	
 		if (len_b == 2)
-			sorttwob(*b);
+			sorttwo_b(*b);
 		else if (len_b == 3)
 		{
 			if (ft_lstsize(*b) == 3)
@@ -341,21 +397,10 @@ int	sort_b(t_list	**a, t_list **b, size_t	len_b)
 		}
 		return (0);
 	}
-	ft_sortwithpivot(a, b, len_b);
+	ft_sortbwithpivot(b, a, len_b);
 	return (0);
 }
-// int	sorttwo_b(t_list	*lst)
-// {
-// 	int	n;
 
-// 	n = ft_lstsize(lst);
-// 	if (n == 2)
-// 	{
-// 		if (lst->next->content > lst->content)
-// 			sa(&lst);
-// 	}
-// 	return (0);
-// }
 
 int main ()
 {
@@ -363,29 +408,36 @@ int main ()
 	t_list *a;
 	a = NULL;
 	b = NULL;
-	ft_lstadd_back(&b,ft_lstnew(3));
-	ft_lstadd_back(&b,ft_lstnew(2));
 	ft_lstadd_back(&b,ft_lstnew(1));
-	// ft_lstadd_back(&b,ft_lstnew(5));
-	// ft_lstadd_back(&b,ft_lstnew(254));
-	// ft_lstadd_back(&b,ft_lstnew(22));
-	// ft_lstadd_back(&b,ft_lstnew(2359));
-	// ft_lstadd_back(&b,ft_lstnew(236));
-	// ft_lstadd_back(&b,ft_lstnew(215));
-	// ft_lstadd_back(&b,ft_lstnew(221));
-	// ft_lstadd_back(&b,ft_lstnew(32));
-	// ft_lstadd_back(&b,ft_lstnew(54));
-	// ft_lstadd_back(&b,ft_lstnew(65));
-	// ft_lstadd_back(&b,ft_lstnew(3233));
-	// ft_lstadd_back(&b,ft_lstnew(21));
-	// ft_lstadd_back(&b,ft_lstnew(22222));
-	// ft_lstadd_back(&b,ft_lstnew(89));
-	// // ft_lstadd_back(&b,ft_lstnew(-565));
-	sort_b(&a, &b ,4);
+	ft_lstadd_back(&b,ft_lstnew(2));
+	ft_lstadd_back(&b,ft_lstnew(3));
+	ft_lstadd_back(&b,ft_lstnew(0));
+	ft_lstadd_back(&b,ft_lstnew(4));
+	ft_lstadd_back(&b,ft_lstnew(7));
+	ft_lstadd_back(&b,ft_lstnew(5));
+	// ft_lstadd_back(&a,ft_lstnew(6));
+	// ft_lstadd_back(&a,ft_lstnew(215));
+	// ft_lstadd_back(&a,ft_lstnew(221));
+	// ft_lstadd_back(&a,ft_lstnew(32));
+	// ft_lstadd_back(&a,ft_lstnew(54));
+	// ft_lstadd_back(&a,ft_lstnew(65));
+	// ft_lstadd_back(&a,ft_lstnew(3233));
+	// ft_lstadd_back(&a,ft_lstnew(21));
+	// ft_lstadd_back(&a,ft_lstnew(22222));
+	// ft_lstadd_back(&a,ft_lstnew(89));
+	// ft_lstadd_back(&b,ft_lstnew(-565));
+	sort_b(&b, &a, 7);
 	printf("-----------\n");
+	puts("list b");
 	while (b)
 	{
 		printf("%d\n",b->content);
 		b = b->next;
+	}
+	puts("list a");
+	while (a)
+	{
+		printf("%d\n",a->content);
+		a = a->next;
 	}
 }
