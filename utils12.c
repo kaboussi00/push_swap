@@ -6,21 +6,18 @@
 /*   By: kaboussi <kaboussi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 14:02:34 by kaboussi          #+#    #+#             */
-/*   Updated: 2023/02/18 14:34:47 by kaboussi         ###   ########.fr       */
+/*   Updated: 2023/02/18 15:30:09 by kaboussi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	sorttwo_b(t_list	*lst)
+int	sorttwo_b(t_list	**lst)
 {
-	int	n;
-
-	n = ft_lstsize(lst);
-	if (n == 2)
+	if (*lst && (*lst)->next)
 	{
-		if (lst->next->content > lst->content)
-			sb(&lst);
+		if ((*lst)->next->content > (*lst)->content)
+			sb(lst);
 	}
 	return (0);
 }

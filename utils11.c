@@ -6,7 +6,7 @@
 /*   By: kaboussi <kaboussi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 13:44:12 by kaboussi          #+#    #+#             */
-/*   Updated: 2023/02/18 12:25:01 by kaboussi         ###   ########.fr       */
+/*   Updated: 2023/02/19 12:13:01 by kaboussi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ int	ft_sortawithpivot(t_list **a, t_list **b, size_t len_a)
 	i = -1;
 	tmpa = (*a);
 	tmp.pivot = sort_lst(*a, len_a);
+	printf("pivot : %d\n",tmp.pivot);
 	while (tmpa && ++i < len_a)
 	{
 		if ((tmpa)->content < tmp.pivot)
@@ -37,11 +38,13 @@ int	ft_sortawithpivot(t_list **a, t_list **b, size_t len_a)
 		}
 		tmpa = tmpa->next;
 	}
-	return (sort_a(a, b, tmp.ret_ra), sort_b(a, b, tmp.ret_pb));
+	return (sort_a(a, b, tmp.ret_ra), sort_b(a, b, tmp.ret_pb), tmp.ret_pb);
 }
 
 int	sort_a(t_list	**a, t_list **b, size_t	len_a)
 {
+	int	k;
+
 	if (len_a <= 3)
 	{
 		if (len_a == 2)
@@ -55,6 +58,7 @@ int	sort_a(t_list	**a, t_list **b, size_t	len_a)
 		}
 		return (0);
 	}
-	ft_sortawithpivot(a, b, len_a);
+	k = ft_sortawithpivot(a, b, len_a);
+	back_to_a(a, b, k);
 	return (0);
 }

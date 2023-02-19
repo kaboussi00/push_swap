@@ -6,7 +6,7 @@
 /*   By: kaboussi <kaboussi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 19:36:21 by kaboussi          #+#    #+#             */
-/*   Updated: 2023/02/18 14:34:29 by kaboussi         ###   ########.fr       */
+/*   Updated: 2023/02/18 15:27:46 by kaboussi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	sorttwo(t_list	*lst)
 	n = ft_lstsize(lst);
 	if (n == 2)
 	{
-		if (lst->next->content > lst->content)
+		if (lst->next->content < lst->content)
 			sa(&lst);
 	}
 	return (0);

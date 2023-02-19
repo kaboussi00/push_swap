@@ -15,6 +15,7 @@ SRCS = push_swap.c\
 	utils11.c\
 	utils12.c\
 	utils13.c\
+	utils14.c\
 
 OBJS = $(SRCS:.c=.o)
 

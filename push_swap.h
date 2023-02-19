@@ -6,7 +6,7 @@
 /*   By: kaboussi <kaboussi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 15:37:04 by kaboussi          #+#    #+#             */
-/*   Updated: 2023/02/18 14:34:18 by kaboussi         ###   ########.fr       */
+/*   Updated: 2023/02/18 15:22:40 by kaboussi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ int		sort_lst(t_list *lst, int size);
 void	ft_swap(int *a, int *b);
 t_list	*ft_lstcopie(t_list	*lst, int size);
 int		sorttwo(t_list	*lst);
-int		sorttwo_b(t_list	*lst);
+int		sorttwo_b(t_list	**lst);
 int		sorttrois(t_list **lst);
 int		sorttrois_b(t_list **lst);
 int		utilssortrois_b(t_list **lst, t_var tmp);
@@ -94,5 +94,7 @@ int		ft_sortawithpivot(t_list **a, t_list **b, size_t len_a);
 int		ft_sortbwithpivot(t_list **a, t_list **b, size_t len_b);
 int		sort_a(t_list	**a, t_list **b, size_t	len_a);
 int		sort_b(t_list	**a, t_list **b, size_t	len_b);
+int		back_to_a(t_list **a, t_list **b, int k);
+int		back_to_b(t_list **a, t_list **b, int k);
 
 #endif
