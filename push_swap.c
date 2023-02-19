@@ -6,7 +6,7 @@
 /*   By: kaboussi <kaboussi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 15:41:33 by kaboussi          #+#    #+#             */
-/*   Updated: 2023/02/18 14:54:29 by kaboussi         ###   ########.fr       */
+/*   Updated: 2023/02/19 15:49:24 by kaboussi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ int	main(int ac, char **av)
 	b = NULL;
 	i = 1;
 	join = ft_strdup("");
+	
 	if (ac == 1)
 		return (0);
 	else if (ac > 2)
@@ -40,13 +41,13 @@ int	main(int ac, char **av)
 			ft_lstadd_back(&a, ft_lstnew(ft_atoi(split[i++])));
 		duplicate(a);
 		sort_a(&a, &b, i);
-		puts("a");
+		puts("stack_a");
 		while (a)
 		{
 			printf("%d\n", a->content);
 			a = a->next;
 		}
-		puts("b");
+		puts("stack_b");
 		while (b)
 		{
 			printf("%d\n", b->content);

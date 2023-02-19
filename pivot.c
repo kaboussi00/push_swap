@@ -6,20 +6,11 @@
 /*   By: kaboussi <kaboussi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 16:18:01 by kaboussi          #+#    #+#             */
-/*   Updated: 2023/02/13 12:16:17 by kaboussi         ###   ########.fr       */
+/*   Updated: 2023/02/19 18:38:17 by kaboussi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	ft_swap(int *a, int *b)
-{
-	int	tmp;
-
-	tmp = *a;
-	*a = *b;
-	*b = tmp;
-}
 
 int	pivot(t_list	**lst, int size)
 {

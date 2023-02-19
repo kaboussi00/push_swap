@@ -1,39 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils14.c                                          :+:      :+:    :+:   */
+/*   instructin_a_b.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kaboussi <kaboussi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/18 14:38:15 by kaboussi          #+#    #+#             */
-/*   Updated: 2023/02/18 15:28:36 by kaboussi         ###   ########.fr       */
+/*   Created: 2023/01/16 15:52:15 by kaboussi          #+#    #+#             */
+/*   Updated: 2023/02/19 18:36:23 by kaboussi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	back_to_a(t_list **a, t_list **b, int k)
+void	rr(t_list **a, t_list **b)
 {
-	int	i;
-
-	i = 0;
-	while (k > i)
+	if ((*a) && (*b))
 	{
-		pa(a, b);
-		i++;
+		ra(a);
+		rb(b);
 	}
-	return (0);
 }
 
-int	back_to_b(t_list **a, t_list **b, int k)
+void	rrr(t_list **a, t_list **b)
 {
-	int	i;
-
-	i = 0;
-	while (k > i)
+	if ((*a) && (*b))
 	{
-		pb(a, b);
-		i++;
+		rra(a);
+		rrb(b);
 	}
-	return (0);
+}
+
+void	ss(t_list **a, t_list **b)
+{
+	if ((*a) && ((*a)->next) && (*b) && ((*b)->next))
+	{
+		sa(a);
+		sb(b);
+	}
 }

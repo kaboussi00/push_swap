@@ -1,43 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils06.c                                          :+:      :+:    :+:   */
+/*   back_to_a_b.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kaboussi <kaboussi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/16 15:52:15 by kaboussi          #+#    #+#             */
-/*   Updated: 2023/01/30 16:45:46 by kaboussi         ###   ########.fr       */
+/*   Created: 2023/02/19 18:33:53 by kaboussi          #+#    #+#             */
+/*   Updated: 2023/02/19 18:33:58 by kaboussi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	rrr(t_list **a, t_list **b)
+int	back_to_a(t_list **a, t_list **b, int k)
 {
-	if ((*a) && (*b))
-	{
-		rra(a);
-		rrb(b);
-	}
-}
+	int	i;
 
-int	duplicate(t_list *lst)
-{
-	t_list	*tmp;
-	t_list	*tmp1;
-
-	tmp = lst;
-	while (tmp)
+	i = 0;
+	while (k > i)
 	{
-		tmp1 = tmp->next;
-		while (tmp1)
-		{
-			if (tmp->content == tmp1->content)
-				printerror();
-			tmp1 = tmp1->next;
-		}
-		tmp = tmp->next;
+		pa(a, b);
+		i++;
 	}
 	return (0);
 }
 
+int	back_to_b(t_list **a, t_list **b, int k)
+{
+	int	i;
+
+	i = 0;
+	while (k > i)
+	{
+		pb(a, b);
+		i++;
+	}
+	return (0);
+}

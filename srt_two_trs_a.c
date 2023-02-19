@@ -6,12 +6,11 @@
 /*   By: kaboussi <kaboussi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 19:36:21 by kaboussi          #+#    #+#             */
-/*   Updated: 2023/02/18 15:27:46 by kaboussi         ###   ########.fr       */
+/*   Updated: 2023/02/19 16:05:14 by kaboussi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
 
 int	sorttwo(t_list	*lst)
 {
@@ -76,15 +75,20 @@ int	sorttroistop(t_list **a)
 		if (tmp.tmp2 > tmp.tmp3)
 			sa(a);
 	}
-	utilsorttroistop(a, tmp);
+	else if (tmp.tmp2 > tmp.tmp1 && tmp.tmp2 > tmp.tmp3)
+	{
+		ra(a);
+		sa(a);
+		rra(a);
+		if (tmp.tmp1 > tmp.tmp3)
+			sa(a);
+	}
+	// utilsorttroistop(a, tmp);
 	return (0);
 }
 
 int	utilsorttroistop(t_list **a, t_var	tmp)
 {
-	tmp.tmp1 = (*a)->content;
-	tmp.tmp2 = (*a)->next->content;
-	tmp.tmp3 = (*a)->next->next->content;
 	if (tmp.tmp2 > tmp.tmp1 && tmp.tmp2 > tmp.tmp3)
 	{
 		ra(a);
@@ -95,4 +99,3 @@ int	utilsorttroistop(t_list **a, t_var	tmp)
 	}
 	return (0);
 }
-

@@ -6,7 +6,7 @@
 /*   By: kaboussi <kaboussi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 14:02:34 by kaboussi          #+#    #+#             */
-/*   Updated: 2023/02/18 15:30:09 by kaboussi         ###   ########.fr       */
+/*   Updated: 2023/02/19 18:41:34 by kaboussi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,9 +49,6 @@ int	sorttrois_b(t_list **lst)
 
 int	utilssortrois_b(t_list **lst, t_var	tmp)
 {
-	tmp.tmp1_b = (*lst)->content;
-	tmp.tmp2_b = (*lst)->next->content;
-	tmp.tmp3_b = (*lst)->next->next->content;
 	if (tmp.tmp2_b > tmp.tmp1_b && tmp.tmp2_b > tmp.tmp3_b)
 	{
 		if (tmp.tmp1_b > tmp.tmp3_b)
@@ -69,7 +66,7 @@ int	sorttroistop_b(t_list **b)
 	tmp.tmp1 = (*b)->content;
 	tmp.tmp2 = (*b)->next->content;
 	tmp.tmp3 = (*b)->next->next->content;
-	if (tmp.tmp3 > tmp.tmp1 && tmp.tmp3 < tmp.tmp2)
+	if (tmp.tmp3 > tmp.tmp1 && tmp.tmp3 > tmp.tmp2)
 	{
 		if (tmp.tmp2 > tmp.tmp1)
 			sb(b);
@@ -93,9 +90,6 @@ int	sorttroistop_b(t_list **b)
 
 int	utilssortroistop_b(t_list **b, t_var	tmp)
 {
-	tmp.tmp1 = (*b)->content;
-	tmp.tmp2 = (*b)->next->content;
-	tmp.tmp3 = (*b)->next->next->content;
 	if (tmp.tmp2 > tmp.tmp1 && tmp.tmp2 > tmp.tmp3)
 	{
 		sb(b);

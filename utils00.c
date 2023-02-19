@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: kaboussi <kaboussi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/13 15:46:06 by kaboussi          #+#    #+#             */
-/*   Updated: 2023/01/21 20:37:11 by kaboussi         ###   ########.fr       */
+/*   Created: 2023/02/19 18:25:40 by kaboussi          #+#    #+#             */
+/*   Updated: 2023/02/19 18:38:11 by kaboussi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,43 +60,24 @@ char	*ft_strdup(const char *str)
 	return (p);
 }
 
-int	ft_atoi(const char *str)
+int	ft_lstsize(t_list *lst)
 {
-	int	i;
-	int	s;
-	int	n;
+	int	size;
 
-	s = 1;
-	i = 0;
-	n = 0;
-	while ((str[i] >= 9 && str[i] <= 13) || (str[i] == ' '))
-		i++;
-	if (str[i] == '+' || str[i] == '-')
+	size = 0;
+	while (lst)
 	{
-		if (str[i] == '-')
-			(s *= -1);
-		i++;
+		lst = lst->next;
+		size++;
 	}
-	if (str[i] < 48 || str[i] > 57)
-		printerror();
-	while (str[i] >= '0' && str[i] <= '9')
-		n = (n * 10) + str[i++] - 48;
-	if ((str[i] < 48 || str[i] > 57) && str[i])
-		printerror();
-	return (ft_limits(n * s));
+	return (size);
 }
 
-void	printerror(void)
+void	ft_swap(int *a, int *b)
 {
-	write (2, "error\n", 6);
-	exit(0);
-}
+	int	tmp;
 
-int	ft_limits(int n)
-{
-	if (n >= -2147483648 && n <= 2147483647)
-		return (n);
-	else
-		printerror();
-	return (0);
+	tmp = *a;
+	*a = *b;
+	*b = tmp;
 }

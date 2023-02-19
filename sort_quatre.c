@@ -6,24 +6,11 @@
 /*   By: kaboussi <kaboussi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 15:00:04 by kaboussi          #+#    #+#             */
-/*   Updated: 2023/02/18 12:26:45 by kaboussi         ###   ########.fr       */
+/*   Updated: 2023/02/19 18:37:01 by kaboussi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-int	ft_lstsize(t_list *lst)
-{
-	int	size;
-
-	size = 0;
-	while (lst)
-	{
-		lst = lst->next;
-		size++;
-	}
-	return (size);
-}
 
 int	minvalue(t_list **lst, t_list **b)
 {

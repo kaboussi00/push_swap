@@ -1,21 +1,23 @@
 NAME = push_swap
 INC = push_swap.h
 SRCS = push_swap.c\
+	erreurs.c\
+	instructions_a.c\
+	instructions_b.c\
+	instructions_a_b.c\
+	srt_two_trs_a.c\
+	srt_two_trs_b.c\
+	sort_quatre.c\
+	sort_cinq.c\
+	pivot.c\
+	sort_a.c\
+	sort_b.c\
+	back_to_a_b.c\
+	ft_retat.c\
 	utils00.c\
 	utils01.c\
 	utils02.c\
 	utils03.c\
-	utils04.c\
-	utils05.c\
-	utils06.c\
-	utils07.c\
-	utils08.c\
-	utils09.c\
-	utils10.c\
-	utils11.c\
-	utils12.c\
-	utils13.c\
-	utils14.c\
 
 OBJS = $(SRCS:.c=.o)
 
