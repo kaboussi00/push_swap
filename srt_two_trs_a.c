@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils10.c                                          :+:      :+:    :+:   */
+/*   srt_two_trs_a.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kaboussi <kaboussi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 19:36:21 by kaboussi          #+#    #+#             */
-/*   Updated: 2023/02/19 16:05:14 by kaboussi         ###   ########.fr       */
+/*   Updated: 2023/02/20 21:22:06 by kaboussi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,8 @@
 
 int	sorttwo(t_list	*lst)
 {
-	int	n;
-
-	n = ft_lstsize(lst);
-	if (n == 2)
-	{
-		if (lst->next->content < lst->content)
-			sa(&lst);
-	}
+	if (lst->next->content < lst->content)	
+		sa(&lst);
 	return (0);
 }
 

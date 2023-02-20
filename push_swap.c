@@ -6,7 +6,7 @@
 /*   By: kaboussi <kaboussi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 15:41:33 by kaboussi          #+#    #+#             */
-/*   Updated: 2023/02/20 20:06:15 by kaboussi         ###   ########.fr       */
+/*   Updated: 2023/02/20 21:23:24 by kaboussi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,17 +41,17 @@ int	main(int ac, char **av)
 			ft_lstadd_back(&a, ft_lstnew(ft_atoi(split[i++])));
 		duplicate(a);
 		sort_a(&a, &b, i);
-		puts("stack_a");
-		while (a)
-		{
-			printf("%d\n", a->content);
-			a = a->next;
-		}
-		puts("stack_b");
-		while (b)
-		{
-			printf("%d\n", b->content);
-			b = b->next;
-		}
+		// puts("stack_a");
+		// while (a)
+		// {
+		// 	printf("%d\n", a->content);
+		// 	a = a->next;
+		// }
+		// puts("stack_b");
+		// while (b)
+		// {
+		// 	printf("%d\n", b->content);
+		// 	b = b->next;
+		// }
 	}
 }

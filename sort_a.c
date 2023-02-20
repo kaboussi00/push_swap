@@ -6,7 +6,7 @@
 /*   By: kaboussi <kaboussi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 13:44:12 by kaboussi          #+#    #+#             */
-/*   Updated: 2023/02/20 21:10:19 by kaboussi         ###   ########.fr       */
+/*   Updated: 2023/02/20 21:23:37 by kaboussi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	ft_sortawithpivot(t_list **a, t_list **b, size_t len_a)
 	i = -1;
 	tmpa = (*a);
 	tmp.pivot = sort_lst(*a, len_a);
-	printf("pivot_a : %d\n", tmp.pivot);
+	// printf("pivot_a : %d\n", tmp.pivot);
 	while (tmpa && ++i < len_a)
 	{
 		if ((tmpa)->content < tmp.pivot)
