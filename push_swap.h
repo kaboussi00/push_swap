@@ -6,7 +6,7 @@
 /*   By: kaboussi <kaboussi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 15:37:04 by kaboussi          #+#    #+#             */
-/*   Updated: 2023/02/19 16:02:48 by kaboussi         ###   ########.fr       */
+/*   Updated: 2023/02/20 21:01:18 by kaboussi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,5 +96,7 @@ int		sort_a(t_list	**a, t_list **b, size_t	len_a);
 int		sort_b(t_list	**a, t_list **b, size_t	len_b);
 int		back_to_a(t_list **a, t_list **b, int k);
 int		back_to_b(t_list **a, t_list **b, int k);
+int		rr_a(t_list **a, t_var tmp);
+int		rr_b(t_list **b, t_var tmp);
 
 #endif

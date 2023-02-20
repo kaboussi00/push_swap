@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils09.c                                          :+:      :+:    :+:   */
+/*   pivot.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kaboussi <kaboussi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 16:18:01 by kaboussi          #+#    #+#             */
-/*   Updated: 2023/02/19 18:38:17 by kaboussi         ###   ########.fr       */
+/*   Updated: 2023/02/20 20:39:11 by kaboussi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,17 @@ int	pivot(t_list	**lst, int size)
 {
 	t_list	*tmp;
 	int		index;
-	int		i;
+	// int		i;
 	int		j;
 
 	tmp = *lst;
 	j = 1;
 	size = ft_lstsize(tmp);
-	i = size / 2 ;
-	if (size % 2 == 0)
-		index = i;
-	else
-		index = i + 1;
+	index = size / 2 + 1;
+	// if (size % 2 == 0)
+	// 	index = i + 1;
+	// else
+	// 	index = i + 1;
 	while (j != index)
 	{
 		tmp = tmp->next;
@@ -57,15 +57,13 @@ t_list	*ft_lstcopie(t_list	*lst, int size)
 
 int	sort_lst(t_list *lst, int size)
 {
-	t_list	*tmp;
 	t_list	*i;
 	t_list	*j;
 	int		ret;
 	t_list	*lstcp;
 
 	lstcp = ft_lstcopie(lst, size);
-	tmp = lstcp;
-	i = tmp;
+	i = lstcp;
 	while (i)
 	{
 		j = i->next;
@@ -78,5 +76,11 @@ int	sort_lst(t_list *lst, int size)
 		}
 		i = i->next;
 	}
+	// while(lstcp)
+	// {
+	// 	printf("lstcopie : %d\n", lstcp->content);
+	// 	lstcp = lstcp->next;
+	// }
+	// exit (0);
 	return (pivot(&lstcp, size));
 }

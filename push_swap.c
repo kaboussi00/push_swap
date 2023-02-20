@@ -6,7 +6,7 @@
 /*   By: kaboussi <kaboussi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 15:41:33 by kaboussi          #+#    #+#             */
-/*   Updated: 2023/02/19 15:49:24 by kaboussi         ###   ########.fr       */
+/*   Updated: 2023/02/20 20:06:15 by kaboussi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	main(int ac, char **av)
 	b = NULL;
 	i = 1;
 	join = ft_strdup("");
-	
+
 	if (ac == 1)
 		return (0);
 	else if (ac > 2)
