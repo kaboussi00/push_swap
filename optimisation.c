@@ -1,56 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils03.c                                          :+:      :+:    :+:   */
+/*   optimisation.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kaboussi <kaboussi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/13 20:01:53 by kaboussi          #+#    #+#             */
-/*   Updated: 2023/02/23 20:01:44 by kaboussi         ###   ########.fr       */
+/*   Created: 2023/02/22 16:05:58 by kaboussi          #+#    #+#             */
+/*   Updated: 2023/02/27 20:21:05 by kaboussi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_lstadd_back(t_list **lst, t_list *new)
+t_opt	*lstnewstr(char *str)
 {
-	t_list	*last;
-	t_list	*tmp;
+	t_opt	*k;
 
-	if (*lst)
-	{
-		tmp = *lst;
-		last = ft_lstlast(tmp);
-		last->next = new;
-	}
-	else
-		*lst = new;
+	k = malloc(sizeof(t_opt));
+	if (!k)
+		return (NULL);
+	k->str = ft_strdup(str);
+	k->next = NULL;
+	return (k);
 }
 
-void	ft_putstr(char *s)
-{
-	int		i;
-
-	if (!s)
-		return ;
-	i = 0;
-	while (s[i])
-	{
-		write(1, &s[i], 1);
-		i++;
-	}
-}
-
-void	ft_lstadd_front(t_list **lst, t_list *new)
-{
-	if (lst)
-	{
-		new->next = *lst;
-		*lst = new;
-	}
-}
-
-t_list	*ft_lstlast(t_list *lst)
+t_opt	*ft_last(t_opt *lst)
 {
 	while (lst)
 	{
@@ -61,10 +35,18 @@ t_list	*ft_lstlast(t_list *lst)
 	return (NULL);
 }
 
-void	ft_lstdelone(t_list *lst)
+void	ft_addback(t_opt **lst, t_opt *new)
 {
-	if (lst)
+	t_opt	*last;
+	t_opt	*tmp;
+
+	if (*lst)
 	{
-		free(lst);
+		tmp = *lst;
+		last = ft_last(tmp);
+		last->next = new;
 	}
+	else
+		*lst = new;
 }
+

@@ -6,61 +6,59 @@
 /*   By: kaboussi <kaboussi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 13:44:12 by kaboussi          #+#    #+#             */
-/*   Updated: 2023/02/20 21:23:37 by kaboussi         ###   ########.fr       */
+/*   Updated: 2023/02/27 20:12:12 by kaboussi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"push_swap.h"
 
-int	ft_sortawithpivot(t_list **a, t_list **b, size_t len_a)
+int	ft_sortawithpivot(t_list **a, t_list **b, size_t len_a, t_opt **optlst)
 {
 	t_list	*tmpa;
 	t_var	tmp;
-	size_t	i;
 
 	tmp.ret_pb = 0;
 	tmp.ret_ra = 0;
-	i = -1;
+	tmp.i = -1;
 	tmpa = (*a);
 	tmp.pivot = sort_lst(*a, len_a);
-	// printf("pivot_a : %d\n", tmp.pivot);
-	while (tmpa && ++i < len_a)
+	while (tmpa && ++tmp.i < len_a)
 	{
 		if ((tmpa)->content < tmp.pivot)
 		{
-			pb(a, b);
+			pb(a, b, optlst);
 			tmp.ret_pb += 1;
 		}
 		else if ((tmpa)->content >= tmp.pivot)
 		{
-			ra(a);
+			ra(a, optlst);
 			tmp.ret_ra += 1;
 		}
 		tmpa = tmpa->next;
 	}
-	rr_a(a, tmp);
-	return (sort_a(a, b, tmp.ret_ra), sort_b(a, b, tmp.ret_pb), tmp.ret_pb);
+	rr_a(a, tmp, optlst);
+	sort_a(a, b, tmp.ret_ra, optlst);
+	return (sort_b(a, b, tmp.ret_pb, optlst), tmp.ret_pb);
 }
 
-int	sort_a(t_list	**a, t_list **b, size_t	len_a)
+int	sort_a(t_list	**a, t_list **b, size_t	len_a, t_opt **optlst)
 {
 	int		k;
 
 	if (len_a <= 3)
 	{
 		if (len_a == 2)
-			sorttwo(*a);
+			sorttwo(*a, optlst);
 		else if (len_a == 3)
 		{
 			if (ft_lstsize(*a) == 3)
-				sorttrois(a);
+				sorttrois(a, optlst);
 			else
-				sorttroistop(a);
+				sorttroistop(a, optlst);
 		}
 		return (0);
 	}
-	k = ft_sortawithpivot(a, b, len_a);
-	back_to_a(a, b, k);
+	k = ft_sortawithpivot(a, b, len_a, optlst);
+	back_to_a(a, b, k, optlst);
 	return (0);
 }
-

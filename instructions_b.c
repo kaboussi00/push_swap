@@ -6,13 +6,13 @@
 /*   By: kaboussi <kaboussi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 11:18:38 by kaboussi          #+#    #+#             */
-/*   Updated: 2023/02/19 18:50:36 by kaboussi         ###   ########.fr       */
+/*   Updated: 2023/02/27 20:13:36 by kaboussi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sb(t_list **b)
+void	sb(t_list **b, t_opt **optlst)
 {
 	int	tmp;
 
@@ -22,10 +22,10 @@ void	sb(t_list **b)
 		(*b)->next->content = (*b)->content;
 		(*b)->content = tmp;
 	}
-	ft_putstr("sb\n");
+	ft_addback(optlst, lstnewstr("sb\n"));
 }
 
-void	rb(t_list **b)
+void	rb(t_list **b, t_opt **optlst)
 {
 	t_list	*tmp;
 
@@ -34,13 +34,11 @@ void	rb(t_list **b)
 		tmp = (*b);
 		(*b) = tmp->next;
 		ft_lstadd_back(b, ft_lstnew(tmp->content));
-		free(tmp);
-		tmp = NULL;
 	}
-	ft_putstr("rb\n");
+	ft_addback(optlst, lstnewstr("rb\n"));
 }
 
-void	pb(t_list **a, t_list **b)
+void	pb(t_list **a, t_list **b, t_opt **optlst)
 {
 	t_list	*tmp;
 
@@ -50,13 +48,11 @@ void	pb(t_list **a, t_list **b)
 		tmp = (*a);
 		(*a) = tmp->next;
 		ft_lstadd_front (b, ft_lstnew(tmp->content));
-		free(tmp);
-		tmp = NULL;
 	}
-	ft_putstr("pb\n");
+	ft_addback(optlst, lstnewstr("pb\n"));
 }
 
-void	rrb(t_list **b)
+void	rrb(t_list **b, t_opt **optlst)
 {
 	t_list	*tmp;
 	t_list	*tmp1;
@@ -71,7 +67,7 @@ void	rrb(t_list **b)
 		x = tmp->content;
 		ft_lstadd_front((b), ft_lstnew(x));
 		tmp1->next = NULL;
-		ft_lstdelone(tmp);
 	}
-	ft_putstr("rrb\n");
+	ft_addback(optlst, lstnewstr("rrb\n"));
+
 }

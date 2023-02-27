@@ -6,7 +6,7 @@
 /*   By: kaboussi <kaboussi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/19 18:25:40 by kaboussi          #+#    #+#             */
-/*   Updated: 2023/02/19 18:38:11 by kaboussi         ###   ########.fr       */
+/*   Updated: 2023/02/23 20:14:44 by kaboussi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,25 +41,6 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	return (p);
 }
 
-char	*ft_strdup(const char *str)
-{
-	size_t	len;
-	char	*p;
-	int		i;
-
-	len = ft_strlen(str);
-	p = ft_calloc(len + 1, sizeof(char));
-	if (!p)
-		return (NULL);
-	i = 0;
-	while (str[i])
-	{
-		p[i] = str[i];
-		i++;
-	}
-	return (p);
-}
-
 int	ft_lstsize(t_list *lst)
 {
 	int	size;
@@ -80,4 +61,24 @@ void	ft_swap(int *a, int *b)
 	tmp = *a;
 	*a = *b;
 	*b = tmp;
+}
+
+char	*ft_strdup(const char *str)
+{
+	size_t	len;
+	char	*p;
+	int		i;
+
+	len = ft_strlen(str);
+	p = malloc(len * sizeof(char));
+	if (!p)
+		return (NULL);
+	i = 0;
+	while (str[i])
+	{
+		p[i] = str[i];
+		i++;
+	}
+	p[i] = ('\0');
+	return (p);
 }

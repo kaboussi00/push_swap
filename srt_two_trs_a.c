@@ -6,20 +6,20 @@
 /*   By: kaboussi <kaboussi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 19:36:21 by kaboussi          #+#    #+#             */
-/*   Updated: 2023/02/20 21:22:06 by kaboussi         ###   ########.fr       */
+/*   Updated: 2023/02/24 16:44:23 by kaboussi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	sorttwo(t_list	*lst)
+int	sorttwo(t_list	*lst, t_opt **optlst)
 {
-	if (lst->next->content < lst->content)	
-		sa(&lst);
+	if (lst->next->content < lst->content)
+		sa(&lst, optlst);
 	return (0);
 }
 
-int	sorttrois(t_list **lst)
+int	sorttrois(t_list **lst, t_opt **optlst)
 {
 	int		tmp;
 	int		tmp2;
@@ -31,24 +31,24 @@ int	sorttrois(t_list **lst)
 	if (tmp3 > tmp && tmp3 > tmp2)
 	{
 		if (tmp > tmp2)
-			sa(lst);
+			sa(lst, optlst);
 	}
 	else if (tmp2 > tmp3 && tmp2 > tmp)
 	{
-		rra(lst);
+		rra(lst, optlst);
 		if (tmp < tmp3)
-			sa(lst);
+			sa(lst, optlst);
 	}
 	else if (tmp > tmp2 && tmp > tmp3)
 	{
-		ra(lst);
+		ra(lst, optlst);
 		if (tmp2 > tmp3)
-			sa(lst);
+			sa(lst, optlst);
 	}
 	return (0);
 }
 
-int	sorttroistop(t_list **a)
+int	sorttroistop(t_list **a, t_opt **optlst)
 {
 	t_var	tmp;
 
@@ -58,38 +58,30 @@ int	sorttroistop(t_list **a)
 	if (tmp.tmp3 > tmp.tmp1 && tmp.tmp3 > tmp.tmp2)
 	{
 		if (tmp.tmp1 > tmp.tmp2)
-			sa(a);
+			sa(a, optlst);
 	}
 	else if (tmp.tmp1 > tmp.tmp2 && tmp.tmp1 > tmp.tmp3)
 	{
-		sa(a);
-		ra(a);
-		sa(a);
-		rra(a);
+		sa(a, optlst);
+		ra(a, optlst);
+		sa(a, optlst);
+		rra(a, optlst);
 		if (tmp.tmp2 > tmp.tmp3)
-			sa(a);
+			sa(a, optlst);
 	}
-	else if (tmp.tmp2 > tmp.tmp1 && tmp.tmp2 > tmp.tmp3)
-	{
-		ra(a);
-		sa(a);
-		rra(a);
-		if (tmp.tmp1 > tmp.tmp3)
-			sa(a);
-	}
-	// utilsorttroistop(a, tmp);
+	utilsorttroistop(a, tmp, optlst);
 	return (0);
 }
 
-int	utilsorttroistop(t_list **a, t_var	tmp)
+int	utilsorttroistop(t_list **a, t_var	tmp, t_opt **optlst)
 {
 	if (tmp.tmp2 > tmp.tmp1 && tmp.tmp2 > tmp.tmp3)
 	{
-		ra(a);
-		sa(a);
-		rra(a);
+		ra(a, optlst);
+		sa(a, optlst);
+		rra(a, optlst);
 		if (tmp.tmp1 > tmp.tmp3)
-			sa(a);
+			sa(a, optlst);
 	}
 	return (0);
 }

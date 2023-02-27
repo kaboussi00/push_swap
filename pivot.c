@@ -6,7 +6,7 @@
 /*   By: kaboussi <kaboussi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 16:18:01 by kaboussi          #+#    #+#             */
-/*   Updated: 2023/02/20 20:39:11 by kaboussi         ###   ########.fr       */
+/*   Updated: 2023/02/23 20:13:20 by kaboussi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,12 @@ int	pivot(t_list	**lst, int size)
 {
 	t_list	*tmp;
 	int		index;
-	// int		i;
 	int		j;
 
 	tmp = *lst;
 	j = 1;
 	size = ft_lstsize(tmp);
 	index = size / 2 + 1;
-	// if (size % 2 == 0)
-	// 	index = i + 1;
-	// else
-	// 	index = i + 1;
 	while (j != index)
 	{
 		tmp = tmp->next;
@@ -76,11 +71,5 @@ int	sort_lst(t_list *lst, int size)
 		}
 		i = i->next;
 	}
-	// while(lstcp)
-	// {
-	// 	printf("lstcopie : %d\n", lstcp->content);
-	// 	lstcp = lstcp->next;
-	// }
-	// exit (0);
 	return (pivot(&lstcp, size));
 }
