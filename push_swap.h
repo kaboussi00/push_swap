@@ -6,7 +6,7 @@
 /*   By: kaboussi <kaboussi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 15:37:04 by kaboussi          #+#    #+#             */
-/*   Updated: 2023/02/27 20:21:15 by kaboussi         ###   ########.fr       */
+/*   Updated: 2023/02/28 20:47:52 by kaboussi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,15 @@
 # include <fcntl.h> 
 # include <stdlib.h>
 # include <stdarg.h>
+
+# define PA "pa\n"
+# define PB "pb\n"
+# define RB "rb\n"
+# define RA "ra\n"
+# define RRB "rrb\n"
+# define RRA "rra\n"
+# define SA "sa\n"
+# define SB "sb\n"
 
 typedef struct s_list
 {
@@ -111,5 +120,6 @@ char	*ft_strdup(const char *str);
 t_opt	*lstnewstr(char *str);
 void	ft_addback(t_opt **lst, t_opt *new);
 t_opt	*ft_last(t_opt *lst);
+void	ft_optimisation(t_opt	**lst);
 
 #endif
