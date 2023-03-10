@@ -6,7 +6,7 @@
 /*   By: kaboussi <kaboussi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/19 18:25:40 by kaboussi          #+#    #+#             */
-/*   Updated: 2023/02/28 20:35:46 by kaboussi         ###   ########.fr       */
+/*   Updated: 2023/03/05 16:38:29 by kaboussi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,7 @@ int	ft_strcmp(const char *str1, const char *str2)
 	unsigned char	*st1;
 	unsigned char	*st2;
 
+	i = 0;
 	st1 = (unsigned char *)str1;
 	st2 = (unsigned char *)str2;
 	while (st1[i] != '\0' || st2[i] != '\0')

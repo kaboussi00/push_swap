@@ -6,7 +6,7 @@
 /*   By: kaboussi <kaboussi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 15:37:04 by kaboussi          #+#    #+#             */
-/*   Updated: 2023/02/28 20:47:52 by kaboussi         ###   ########.fr       */
+/*   Updated: 2023/03/10 16:46:16 by kaboussi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,9 @@
 # define RRA "rra\n"
 # define SA "sa\n"
 # define SB "sb\n"
+# define RR "rr\n"
+# define RRR "rrr\n"
+# define SS "ss\n"
 
 typedef struct s_list
 {
@@ -76,7 +79,6 @@ void	ft_lstadd_back(t_list **lst, t_list *new);
 void	ft_putstr(char *s);
 void	ft_lstadd_front(t_list **lst, t_list *new);
 t_list	*ft_lstlast(t_list *lst);
-void	ft_lstdelone(t_list *lst);
 void	sa(t_list **a, t_opt **optlst);
 void	sb(t_list **b, t_opt **optlst);
 void	ss(t_list **a, t_list **b, t_opt **optlst);
@@ -117,9 +119,20 @@ int		back_to_b(t_list **a, t_list **b, int k, t_opt **optlst);
 int		rr_a(t_list **a, t_var tmp, t_opt **optlst);
 int		rr_b(t_list **b, t_var tmp, t_opt **optlst);
 char	*ft_strdup(const char *str);
-t_opt	*lstnewstr(char *str);
-void	ft_addback(t_opt **lst, t_opt *new);
 t_opt	*ft_last(t_opt *lst);
-void	ft_optimisation(t_opt	**lst);
+int		ft_strcmp(const char *str1, const char *str2);
+// optimisation
+void	ft_addback(t_opt **lst, t_opt *new);
+t_opt	*lstnewstr(char *str);
+int		ft_replace_rrr(t_opt	**lst);
+int		ft_replace_ss(t_opt **lst);
+int		ft_replace_rr(t_opt **lst);
+int		ft_del_pa_pb(t_opt	**lst);
+int		ft_del_sa_sb(t_opt	**lst);
+int		ft_del_ra_rra(t_opt	**lst);
+int		ft_del_rb_rrb(t_opt	**lst);
+void	opt_delete(t_opt **lst);
+void	opt_replace(t_opt **lst);
+void	ft_lstdel(t_opt *lst);
 
 #endif

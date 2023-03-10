@@ -6,7 +6,7 @@
 /*   By: kaboussi <kaboussi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 15:41:33 by kaboussi          #+#    #+#             */
-/*   Updated: 2023/02/27 20:18:24 by kaboussi         ###   ########.fr       */
+/*   Updated: 2023/03/09 14:37:39 by kaboussi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,9 +96,15 @@ int	main(int ac, char **av)
 		sort_a(&a, &b, k, &optlst);
 		while (optlst)
 		{
-			printf("%s", optlst->str);
-			optlst = optlst->next;
+			opt_replace(&optlst);
+			opt_delete(&optlst);
+			while (optlst)
+			{
+				// printf("%s", optlst->str);
+				optlst = optlst->next;
+			}
 		}
+		
 		// puts("stack_a");
 		// while (a)
 		// {

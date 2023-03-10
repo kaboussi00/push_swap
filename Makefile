@@ -15,7 +15,8 @@ SRCS = push_swap.c\
 	back_to_a_b.c\
 	ft_retat.c\
 	add_instruction.c\
-	optimisation.c\
+	replace_opt.c\
+	delete_opt.c\
 	utils00.c\
 	utils01.c\
 	utils02.c\
