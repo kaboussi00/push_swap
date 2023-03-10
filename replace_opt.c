@@ -6,7 +6,7 @@
 /*   By: kaboussi <kaboussi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/05 14:07:16 by kaboussi          #+#    #+#             */
-/*   Updated: 2023/03/10 17:04:18 by kaboussi         ###   ########.fr       */
+/*   Updated: 2023/03/10 17:10:28 by kaboussi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,34 @@ int	ft_replace_ss(t_opt **lst)
 	return (0);
 }
 
+int	ft_replace_rrr(t_opt **lst)
+{
+	t_opt	*t;
+	t_opt	*s;
+	t_opt	*t2;
+
+	t = *lst;
+	s = t->next;
+	if ((!ft_strcmp(t->str, RRA) && !ft_strcmp(s->str, RRB)) || \
+		(!ft_strcmp(t->str, RRB) && !ft_strcmp(s->str, RRA)))
+	{
+		t->next = s->next;
+		ft_lstdel(s);
+		t->str = ft_strdup("rrr\n");
+		return (t->next = s->next, ft_lstdel(s), t->str = ft_strdup("ss\n"), 1);
+	}
+	while (t && t->next && t->next->next)
+	{
+		s = t->next;
+		t2 = t->next->next;
+		if ((!ft_strcmp(s->str, RRA) && !ft_strcmp(t2->str, RRB)) || \
+			(!ft_strcmp(s->str, RRB) && !ft_strcmp(t2->str, RRA)))
+			return (ft_lstdel(s), t2->str = ft_strdup("rrr\n"), t->next = t2, 1);
+		t = t->next;
+	}
+	return (0);
+}
+
 void	opt_replace(t_opt **lst)
 {
 	int	l;
@@ -86,3 +114,4 @@ void	opt_replace(t_opt **lst)
 			break ;
 	}
 }
+
