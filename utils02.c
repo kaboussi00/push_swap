@@ -6,7 +6,7 @@
 /*   By: kaboussi <kaboussi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 19:55:37 by kaboussi          #+#    #+#             */
-/*   Updated: 2023/01/16 15:51:25 by kaboussi         ###   ########.fr       */
+/*   Updated: 2023/03/11 17:39:09 by kaboussi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ static int	ft_calcul_mot(char const *s, char c)
 	return (ret);
 }
 
-static char	**ft_free(char **sp)
+char	**ft_free(char **sp)
 {
 	int	i;
 

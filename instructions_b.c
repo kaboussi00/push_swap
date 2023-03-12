@@ -6,7 +6,7 @@
 /*   By: kaboussi <kaboussi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 11:18:38 by kaboussi          #+#    #+#             */
-/*   Updated: 2023/02/27 20:13:36 by kaboussi         ###   ########.fr       */
+/*   Updated: 2023/03/11 16:30:57 by kaboussi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,5 +69,4 @@ void	rrb(t_list **b, t_opt **optlst)
 		tmp1->next = NULL;
 	}
 	ft_addback(optlst, lstnewstr("rrb\n"));
-
 }

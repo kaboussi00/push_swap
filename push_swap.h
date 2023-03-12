@@ -6,7 +6,7 @@
 /*   By: kaboussi <kaboussi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 15:37:04 by kaboussi          #+#    #+#             */
-/*   Updated: 2023/03/10 16:46:16 by kaboussi         ###   ########.fr       */
+/*   Updated: 2023/03/11 17:40:18 by kaboussi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <fcntl.h> 
 # include <stdlib.h>
 # include <stdarg.h>
+# include "get_next_line/get_next_line.h"
 
 # define PA "pa\n"
 # define PB "pb\n"
@@ -97,6 +98,7 @@ void	min_value(t_list **lst, t_opt **optlst);
 int		sortcinq(t_list	**lst, t_list	**b, t_opt **optlst);
 int		duplicate(t_list *lst);
 int		ft_lstsize(t_list *lst);
+char	**ft_free(char **sp);
 int		pivot(t_list	**lst, int size);
 int		sort_lst(t_list *lst, int size);
 void	ft_swap(int *a, int *b);

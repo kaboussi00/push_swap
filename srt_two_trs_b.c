@@ -6,7 +6,7 @@
 /*   By: kaboussi <kaboussi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 14:02:34 by kaboussi          #+#    #+#             */
-/*   Updated: 2023/02/24 16:47:50 by kaboussi         ###   ########.fr       */
+/*   Updated: 2023/03/11 16:31:36 by kaboussi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,7 @@ int	utilssortroistop_b(t_list **b, t_var	tmp, t_opt **optlst)
 {
 	if (tmp.tmp2 > tmp.tmp1 && tmp.tmp2 > tmp.tmp3)
 	{
-		sb(b,optlst);
+		sb(b, optlst);
 		if (tmp.tmp3 > tmp.tmp1)
 		{
 			rb(b, optlst);
