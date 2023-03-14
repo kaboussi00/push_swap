@@ -6,7 +6,7 @@
 /*   By: kaboussi <kaboussi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 16:18:01 by kaboussi          #+#    #+#             */
-/*   Updated: 2023/02/23 20:13:20 by kaboussi         ###   ########.fr       */
+/*   Updated: 2023/03/14 12:59:50 by kaboussi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ int	pivot(t_list	**lst, int size)
 	t_list	*tmp;
 	int		index;
 	int		j;
+	int		v;
 
 	tmp = *lst;
 	j = 1;
@@ -27,7 +28,9 @@ int	pivot(t_list	**lst, int size)
 		tmp = tmp->next;
 		j++;
 	}
-	return (tmp->content);
+	v = tmp->content;
+	free_lst(*lst);
+	return (v);
 }
 
 t_list	*ft_lstcopie(t_list	*lst, int size)

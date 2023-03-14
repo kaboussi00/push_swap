@@ -6,7 +6,7 @@
 /*   By: kaboussi <kaboussi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 20:01:53 by kaboussi          #+#    #+#             */
-/*   Updated: 2023/03/11 16:31:47 by kaboussi         ###   ########.fr       */
+/*   Updated: 2023/03/12 19:20:15 by kaboussi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,19 @@ void	ft_lstdel(t_opt *lst)
 {
 	if (lst)
 	{
+		free (lst->str);
+		lst->str = NULL;
 		free(lst);
 		lst = NULL;
 	}
+}
+
+int	ft_dellst(t_list *lst)
+{
+	if (lst)
+	{
+		free(lst);
+		lst = NULL;
+	}
+	return (0);
 }

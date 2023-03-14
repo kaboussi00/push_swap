@@ -6,7 +6,7 @@
 /*   By: kaboussi <kaboussi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 15:41:33 by kaboussi          #+#    #+#             */
-/*   Updated: 2023/03/11 17:42:01 by kaboussi         ###   ########.fr       */
+/*   Updated: 2023/03/14 13:00:33 by kaboussi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,43 @@ void	prt_opt(t_opt	*optlst)
 	}
 }
 
+void	free_lst(t_list *lst)
+{
+	t_list	*tmp1;
+	t_list	*tmp2;
+
+	tmp1 = lst;
+	while (tmp1)
+	{
+		tmp2 = tmp1;
+		tmp1 = tmp1->next;
+		free(tmp2);
+		tmp2 = NULL;
+	}
+}
+
+void	free_opt(t_opt *lst)
+{
+	t_opt	*tmp1;
+	t_opt	*tmp2;
+
+	tmp1 = lst;
+	while (tmp1)
+	{
+		tmp2 = tmp1;
+		tmp1 = tmp1->next;
+		free(tmp2->str);
+		tmp2->str = NULL;
+		free(tmp2);
+		tmp2 = NULL;
+	}
+}
+
 void	ft_freee(t_list **a, t_list **b, t_opt **optlst, t_var v)
 {
-	free(*a);
-	free(*b);
-	free(*optlst);
+	free_lst(*a);
+	free_lst(*b);
+	free_opt(*optlst);
 	free(v.join);
 	ft_free(v.split);
 }
@@ -45,7 +77,10 @@ int	main(int ac, char **av)
 		return (0);
 	v.join = ft_strdup("");
 	while (++v.j < ac)
-		v.join = ft_strjoin(v.join, ft_strjoin(av[v.j], " "));
+	{
+		v.join = ft_strjoin(v.join, av[v.j]);
+		v.join = ft_strjoin(v.join, " ");
+	}
 	v.split = ft_split(v.join, ' ');
 	v.j = 0;
 	while (v.split[v.j])
@@ -56,6 +91,6 @@ int	main(int ac, char **av)
 	opt_delete(&optlst);
 	prt_opt(optlst);
 	ft_freee(&a, &b, &optlst, v);
-	while (1)
-		;
+	// while (1)
+	// 	;
 }

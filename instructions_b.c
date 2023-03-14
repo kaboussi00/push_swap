@@ -6,7 +6,7 @@
 /*   By: kaboussi <kaboussi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 11:18:38 by kaboussi          #+#    #+#             */
-/*   Updated: 2023/03/11 16:30:57 by kaboussi         ###   ########.fr       */
+/*   Updated: 2023/03/14 12:38:45 by kaboussi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ void	sb(t_list **b, t_opt **optlst)
 		tmp = (*b)->next->content;
 		(*b)->next->content = (*b)->content;
 		(*b)->content = tmp;
+		ft_addback(optlst, lstnewstr("sb\n"));
 	}
-	ft_addback(optlst, lstnewstr("sb\n"));
 }
 
 void	rb(t_list **b, t_opt **optlst)
@@ -34,8 +34,10 @@ void	rb(t_list **b, t_opt **optlst)
 		tmp = (*b);
 		(*b) = tmp->next;
 		ft_lstadd_back(b, ft_lstnew(tmp->content));
+		ft_addback(optlst, lstnewstr("rb\n"));
+		free(tmp);
+		tmp = NULL;
 	}
-	ft_addback(optlst, lstnewstr("rb\n"));
 }
 
 void	pb(t_list **a, t_list **b, t_opt **optlst)
@@ -46,10 +48,12 @@ void	pb(t_list **a, t_list **b, t_opt **optlst)
 	if (*a)
 	{
 		tmp = (*a);
-		(*a) = tmp->next;
+		(*a) = (*a)->next;
 		ft_lstadd_front (b, ft_lstnew(tmp->content));
+		ft_addback(optlst, lstnewstr("pb\n"));
+		free(tmp);
+		tmp = NULL;
 	}
-	ft_addback(optlst, lstnewstr("pb\n"));
 }
 
 void	rrb(t_list **b, t_opt **optlst)
@@ -67,6 +71,8 @@ void	rrb(t_list **b, t_opt **optlst)
 		x = tmp->content;
 		ft_lstadd_front((b), ft_lstnew(x));
 		tmp1->next = NULL;
+		ft_addback(optlst, lstnewstr("rrb\n"));
+		free(tmp);
+		tmp = NULL;
 	}
-	ft_addback(optlst, lstnewstr("rrb\n"));
 }

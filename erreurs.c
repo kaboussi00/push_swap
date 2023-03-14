@@ -6,7 +6,7 @@
 /*   By: kaboussi <kaboussi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 15:46:06 by kaboussi          #+#    #+#             */
-/*   Updated: 2023/02/27 20:17:40 by kaboussi         ###   ########.fr       */
+/*   Updated: 2023/03/12 19:24:25 by kaboussi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ int	ft_atoi(const char *str)
 	}
 	if (str[i] < 48 || str[i] > 57)
 	{
-		puts("joj");
 		printerror();
 	}
 	while (str[i] >= '0' && str[i] <= '9')
@@ -53,7 +52,6 @@ int	ft_limits(int n)
 		return (n);
 	else
 	{	
-		puts("wahd");
 		printerror();
 	}
 	return (0);
@@ -72,7 +70,6 @@ int	duplicate(t_list *lst)
 		{
 			if (tmp->content == tmp1->content)
 			{
-				puts("tlata");
 				printerror();
 			}
 			tmp1 = tmp1->next;

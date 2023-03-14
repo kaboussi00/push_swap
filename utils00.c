@@ -6,13 +6,13 @@
 /*   By: kaboussi <kaboussi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/19 18:25:40 by kaboussi          #+#    #+#             */
-/*   Updated: 2023/03/05 16:38:29 by kaboussi         ###   ########.fr       */
+/*   Updated: 2023/03/12 13:20:12 by kaboussi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char	*ft_strjoin(char *s1, char const *s2)
 {
 	int		i;
 	int		j;
@@ -30,14 +30,11 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		return (NULL);
 	j = 0;
 	while (s1[i])
-	{
 		p[j++] = s1[i++];
-	}
 	i = 0;
 	while (s2[i])
-	{
 		p[j++] = s2[i++];
-	}
+	free(s1);
 	return (p);
 }
 
