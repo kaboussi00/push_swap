@@ -6,7 +6,7 @@
 /*   By: kaboussi <kaboussi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 15:46:06 by kaboussi          #+#    #+#             */
-/*   Updated: 2023/03/14 20:20:36 by kaboussi         ###   ########.fr       */
+/*   Updated: 2023/03/15 14:42:29 by kaboussi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int	ft_atoi(const char *str)
 {
-	int	i;
-	int	s;
-	int	n;
+	int		i;
+	int		s;
+	long	n;
 
 	s = 1;
 	i = 0;
@@ -46,7 +46,7 @@ void	printerror(void)
 	exit(0);
 }
 
-int	ft_limits(int n)
+int	ft_limits(long n)
 {
 	if (n >= -2147483648 && n <= 2147483647)
 		return (n);
@@ -70,6 +70,7 @@ int	duplicate(t_list *lst)
 		{
 			if (tmp->content == tmp1->content)
 			{
+				free_lst(lst);
 				printerror();
 			}
 			tmp1 = tmp1->next;

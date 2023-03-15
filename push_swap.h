@@ -6,7 +6,7 @@
 /*   By: kaboussi <kaboussi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 15:37:04 by kaboussi          #+#    #+#             */
-/*   Updated: 2023/03/15 14:22:43 by kaboussi         ###   ########.fr       */
+/*   Updated: 2023/03/15 14:41:52 by kaboussi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ int		ft_lstsize(t_list *lst);
 //les erreurs
 int		ft_atoi(const char *str);
 void	printerror(void);
-int		ft_limits(int n);
+int		ft_limits(long n);
 int		duplicate(t_list *lst);
 // les instructions
 void	sa(t_list **a, t_opt **optlst);
