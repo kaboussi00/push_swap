@@ -6,7 +6,7 @@
 /*   By: kaboussi <kaboussi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 16:05:58 by kaboussi          #+#    #+#             */
-/*   Updated: 2023/02/28 20:00:38 by kaboussi         ###   ########.fr       */
+/*   Updated: 2023/03/15 13:49:21 by kaboussi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ t_opt	*lstnewstr(char *str)
 	k = malloc(sizeof(t_opt));
 	if (!k)
 		return (NULL);
-	k->str = ft_strdup(str);
+	k->str = p(str);
 	k->next = NULL;
 	return (k);
 }

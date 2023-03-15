@@ -6,7 +6,7 @@
 /*   By: kaboussi <kaboussi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 15:46:06 by kaboussi          #+#    #+#             */
-/*   Updated: 2023/03/12 19:24:25 by kaboussi         ###   ########.fr       */
+/*   Updated: 2023/03/14 20:20:36 by kaboussi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int	ft_atoi(const char *str)
 
 void	printerror(void)
 {
-	write (2, "error\n", 7);
+	write (2, "Error\n", 7);
 	exit(0);
 }
 

@@ -6,7 +6,7 @@
 /*   By: kaboussi <kaboussi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/19 18:25:40 by kaboussi          #+#    #+#             */
-/*   Updated: 2023/03/12 13:20:12 by kaboussi         ###   ########.fr       */
+/*   Updated: 2023/03/15 13:49:21 by kaboussi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ void	ft_swap(int *a, int *b)
 	*b = tmp;
 }
 
-char	*ft_strdup(const char *str)
+char	*p(const char *str)
 {
 	size_t	len;
 	char	*p;

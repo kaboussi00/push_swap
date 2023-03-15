@@ -22,6 +22,7 @@ SRCS = push_swap.c\
 	utils01.c\
 	utils02.c\
 	utils03.c\
+	utils04.c\
 
 SRCS_B = my_checker.c\
 	erreurs.c\
@@ -35,6 +36,7 @@ SRCS_B = my_checker.c\
 	utils01.c\
 	utils02.c\
 	utils03.c\
+	utils04.c\
 
 
 OBJS = $(SRCS:.c=.o)

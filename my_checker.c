@@ -6,7 +6,7 @@
 /*   By: kaboussi <kaboussi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 15:55:09 by kaboussi          #+#    #+#             */
-/*   Updated: 2023/03/11 17:33:05 by kaboussi         ###   ########.fr       */
+/*   Updated: 2023/03/15 14:24:16 by kaboussi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ int	read_file(t_list **a, t_list **b, t_opt **optlst)
 		check_instruction(a, b, str, optlst);
 	while (str)
 	{
+		free (str);
 		str = get_next_line(0);
 		if (str)
 			check_instruction(a, b, str, optlst);
@@ -56,7 +57,7 @@ int	read_file(t_list **a, t_list **b, t_opt **optlst)
 	return (0);
 }
 
-int	check_sort(t_list *a)
+int	check_sort1(t_list *a)
 {
 	t_list	*tmp;
 	t_list	*i;
@@ -79,6 +80,15 @@ int	check_sort(t_list *a)
 	return (0);
 }
 
+void	check(t_list **a, t_list **b, t_opt **optlst)
+{
+	read_file(a, b, optlst);
+	if (!check_sort1(*a) && !*b)
+		ft_putstr("OK\n");
+	else
+		ft_putstr("KO\n");
+}
+
 int	main(int ac, char **av)
 {
 	t_var	v;
@@ -92,17 +102,16 @@ int	main(int ac, char **av)
 	v.j = 0;
 	if (ac == 1)
 		return (0);
-	v.join = ft_strdup("");
+	v.join = p("");
 	while (++v.j < ac)
-		v.join = ft_strjoin(v.join, ft_strjoin(av[v.j], " "));
+	{
+		v.join = ft_strjoin(v.join, av[v.j]);
+		v.join = ft_strjoin(v.join, " ");
+	}
 	v.split = ft_split(v.join, ' ');
 	v.j = -1;
 	while (v.split[++v.j])
 		ft_lstadd_back(&a, ft_lstnew(ft_atoi(v.split[v.j])));
 	duplicate(a);
-	read_file(&a, &b, &optlst);
-	if (!check_sort(a) && !b)
-		ft_putstr("OK\n");
-	else
-		ft_putstr("KO\n");
+	check(&a, &b, &optlst);
 }
